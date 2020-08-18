@@ -218,6 +218,35 @@ public class DBOperation {
             }
         }
     }
+    
+    
+     ArrayList<BuildingModel> getBuildingDetails() {
+        try {
+            ArrayList<BuildingModel> list = new ArrayList<BuildingModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM building";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                BuildingModel buildingModel = new BuildingModel();
+                buildingModel.setBid(rs.getInt(1));
+                buildingModel.setCenter(rs.getString(3));
+                buildingModel.setbName(rs.getString(2));
+                buildingModel.setLocation(rs.getString(4));
+                buildingModel.setNoOfFloors(rs.getString(5));
+                buildingModel.setDepartment(rs.getString(6));
+               
+                list.add(buildingModel);
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
      
 
 }
