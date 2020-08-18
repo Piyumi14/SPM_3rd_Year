@@ -248,5 +248,80 @@ public class DBOperation {
         }
     }
      
+     
+      ///////////////////////Suneth///////////////
+     
+     //Add WorkingHourDay Details
+    boolean addWorkingDayHour(WorkingDayHour workingDayHour) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "INSERT INTO workingdayhour VALUES (?,?,?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            pst.setInt(1, workingDayHour.getWrkid());
+            pst.setString(2, workingDayHour.getNoWrkDaysPWeek());
+            pst.setString(3, workingDayHour.getWrkDays());
+            pst.setString(4, workingDayHour.getWrkTimePDay());
+            pst.setString(5, workingDayHour.getOneHourSlot());
+            pst.setString(6, workingDayHour.getHalfHourSlot());
+            pst.setString(7, workingDayHour.getBatch());
+
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+    
+      //Get all WorkingDayHours Details
+    ArrayList<WorkingDayHour> getWorkingDayHours() {
+        try {
+            ArrayList<WorkingDayHour> list = new ArrayList<WorkingDayHour>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM workingdayhour";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                WorkingDayHour workingDayHour=new WorkingDayHour();
+                workingDayHour.setWrkid(rs.getInt(1));
+                workingDayHour.setNoWrkDaysPWeek(rs.getString(2));
+                workingDayHour.setWrkDays(rs.getString(3));
+                workingDayHour.setWrkTimePDay(rs.getString(4));
+                workingDayHour.setOneHourSlot(rs.getString(5));
+                workingDayHour.setHalfHourSlot(rs.getString(6));
+                workingDayHour.setBatch(rs.getString(7));
+               
+                list.add(workingDayHour);
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+     
 
 }
