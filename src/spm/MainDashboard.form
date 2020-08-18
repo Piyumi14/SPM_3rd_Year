@@ -89,7 +89,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="1655" max="32767" attributes="0"/>
+                  <EmptySpace pref="1643" max="32767" attributes="0"/>
                   <Component id="jLabel11" min="-2" pref="757" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="543" max="-2" attributes="0"/>
               </Group>
@@ -152,7 +152,8 @@
               <Component id="btnSubject" max="32767" attributes="0"/>
               <Component id="btnTag" alignment="0" max="32767" attributes="0"/>
               <Component id="btnGroup" alignment="0" max="32767" attributes="0"/>
-              <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
+              <Component id="jButton2" alignment="0" pref="185" max="32767" attributes="0"/>
+              <Component id="btnBuilding" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -160,7 +161,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" pref="65" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                  <Component id="btnBuilding" min="-2" pref="86" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="btnSubject" min="-2" pref="75" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnTag" min="-2" pref="72" max="-2" attributes="0"/>
@@ -238,6 +241,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBuilding">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Add Building"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuildingActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
