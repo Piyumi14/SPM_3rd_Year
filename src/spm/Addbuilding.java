@@ -7,6 +7,7 @@ package spm;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -234,6 +235,11 @@ public class Addbuilding extends javax.swing.JFrame {
             }
         ));
         jTable1.setCellSelectionEnabled(true);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -324,6 +330,18 @@ public class Addbuilding extends javax.swing.JFrame {
     private void departmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departmentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_departmentActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+          int i = jTable1.getSelectedRow();
+        TableModel model = jTable1.getModel();
+        //lblID.setText(model.getValueAt(i, 0).toString());
+        bName.setText(model.getValueAt(i, 1).toString());
+        center.setSelectedItem(model.getValueAt(i, 2).toString());
+        location.setSelectedItem(model.getValueAt(i, 3).toString());
+        noOfFloors.setSelectedItem(model.getValueAt(i, 4).toString());
+        department.setSelectedItem(model.getValueAt(i, 5).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
