@@ -176,4 +176,48 @@ public class DBOperation {
             return null;
         }
     }
+    
+    boolean addBuilding(BuildingModel b) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into building values (?,?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+    
+
+            pst.setInt(1, b.getBid());
+            pst.setString(2, b.getbName());
+            pst.setString(3, b.getCenter());
+            pst.setString(4, b.getLocation());
+            pst.setString(5, b.getNoOfFloors());
+            pst.setString(6, b.getDepartment());
+
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }
+     
+
 }
