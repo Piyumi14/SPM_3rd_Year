@@ -5,6 +5,7 @@
  */
 package spm;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,14 @@ public class Addbuilding extends javax.swing.JFrame {
      */
     public Addbuilding() {
         initComponents();
+       loadBuildingData();
+    }
+    ArrayList<BuildingModel> list; 
+    void loadBuildingData() {
+        list = db.getBuildingDetails();
+        BuildingDetails buildingDetails = new BuildingDetails(list);
+        jTable1.setModel(buildingDetails);
+        
     }
 
     /**
@@ -342,11 +351,12 @@ public class Addbuilding extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Addbuilding.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Addbuilding().setVisible(true);
+ 
             }
         });
     }
