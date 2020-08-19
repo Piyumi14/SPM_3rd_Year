@@ -16,6 +16,8 @@ import javax.swing.table.TableModel;
 public class Addbuilding extends javax.swing.JFrame {
     
     DBOperation db = new DBOperation();
+    
+   private static String id=null;
 
     /**
      * Creates new form Addbuilding
@@ -354,6 +356,7 @@ public class Addbuilding extends javax.swing.JFrame {
     //private String location;
     //private int noOfFloors;
     //private String department;
+        // String query = "SELECT bid from building  bName='" + bName.getText()
         
         
          BuildingModel bModel = new BuildingModel();
@@ -391,6 +394,10 @@ public class Addbuilding extends javax.swing.JFrame {
         location.setSelectedItem(model.getValueAt(i, 3).toString());
         noOfFloors.setSelectedItem(model.getValueAt(i, 4).toString());
         department.setSelectedItem(model.getValueAt(i, 5).toString());
+        //Addbuilding ab = new Addbuilding();
+       // System.out.println(model.getValueAt(i, 0).toString());
+        //ab.setId(model.getValueAt(i, 0).toString());
+        id = model.getValueAt(i, 0).toString();
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -423,6 +430,9 @@ public class Addbuilding extends javax.swing.JFrame {
 
     private void btnaddRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddRoomActionPerformed
         // TODO add your handling code here:
+         AddRoom sd = new AddRoom();
+        sd.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnaddRoomActionPerformed
 
     /**
@@ -506,4 +516,18 @@ public class Addbuilding extends javax.swing.JFrame {
     private javax.swing.JComboBox location;
     private javax.swing.JComboBox noOfFloors;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 }
