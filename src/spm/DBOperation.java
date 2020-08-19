@@ -394,4 +394,89 @@ public class DBOperation {
         }
     }
 
+      ArrayList<AsubjectStacModel> getSubStac() {
+        try {
+            ArrayList<AsubjectStacModel> list = new ArrayList<AsubjectStacModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM substac";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                AsubjectStacModel asubjectStacModel = new AsubjectStacModel();
+                asubjectStacModel.setScode(rs.getString(1));
+                asubjectStacModel.setYear(rs.getString(2));
+                asubjectStacModel.setSem(rs.getString(3));
+                asubjectStacModel.setNoOfLecHr(rs.getString(4));
+                asubjectStacModel.setNoOfTuteHr(rs.getString(5));
+                asubjectStacModel.setNoOfLabHr(rs.getString(6));
+                 asubjectStacModel.setNoOfEvlHr(rs.getString(7));
+               
+                list.add(asubjectStacModel);
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+ ArrayList<AlecStacModel> getLecStac() {
+        try {
+            ArrayList<AlecStacModel> list = new ArrayList<AlecStacModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM lecstac";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                AlecStacModel alecStacModel = new AlecStacModel();
+                alecStacModel.setCategory(rs.getString(1));
+                alecStacModel.setScenter(rs.getString(2));
+                alecStacModel.setFaculty(rs.getString(3));
+                alecStacModel.setDept(rs.getString(4));
+                alecStacModel.setNoOFSub(rs.getString(5));
+              
+               
+                list.add(alecStacModel);
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+ 
+  ArrayList<AstudentStacModel> getStuStac() {
+        try {
+            ArrayList<AstudentStacModel> list = new ArrayList<AstudentStacModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM stustac";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                AstudentStacModel astudentStacModel = new AstudentStacModel();
+                astudentStacModel.setSsenester(rs.getString(1));
+                astudentStacModel.setNoOfStu(rs.getString(2));
+                astudentStacModel.setNoOfGroup(rs.getString(3));
+                astudentStacModel.setNoOfSubGroup(rs.getString(4));
+                
+               
+                list.add(astudentStacModel);
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
 }
