@@ -248,7 +248,49 @@ public class DBOperation {
         }
     }
      
-     
+      boolean addRoom(AddRoomModel r) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "Insert into room values (?,?,?,?,?,?,?)";
+            pst = (PreparedStatement) con.prepareStatement(query);
+            
+    
+
+            pst.setInt(1, r.getRid());
+            pst.setString(2, r.getrName());
+            pst.setString(3, r.getRoomType());
+            pst.setString(4, r.getFloorNo());
+            pst.setString(5, r.getSection());
+            pst.setString(6, r.getRoomNo());
+             pst.setInt(7, r.getrBid());
+
+            pst.executeUpdate();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return false;
+                }
+            }
+        }
+    }  
+  
       ///////////////////////Suneth///////////////
      
      //Add WorkingHourDay Details
@@ -323,5 +365,33 @@ public class DBOperation {
         }
     }
      
+     ArrayList<AddRoomModel> getRoomDetails() {
+        try {
+            ArrayList<AddRoomModel> list = new ArrayList<AddRoomModel>();
+
+            con = (Connection) DriverManager.getConnection(url, username, password);
+            String query = "SELECT * FROM room";
+            pst = (PreparedStatement) con.prepareStatement(query);
+
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                AddRoomModel addRoomModel = new AddRoomModel();
+                addRoomModel.setRid(rs.getInt(1));
+                addRoomModel.setrName(rs.getString(2));
+                addRoomModel.setRoomType(rs.getString(3));
+                addRoomModel.setFloorNo(rs.getString(4));
+                addRoomModel.setSection(rs.getString(5));
+                addRoomModel.setRoomNo(rs.getString(6));
+                addRoomModel.setrBid(rs.getInt(7));
+               
+                list.add(addRoomModel);
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
 
 }
