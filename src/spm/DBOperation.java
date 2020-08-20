@@ -463,10 +463,11 @@ public class DBOperation {
 
             while (rs.next()) {
                 AstudentStacModel astudentStacModel = new AstudentStacModel();
-                astudentStacModel.setSsenester(rs.getString(1));
-                astudentStacModel.setNoOfStu(rs.getString(2));
-                astudentStacModel.setNoOfGroup(rs.getString(3));
-                astudentStacModel.setNoOfSubGroup(rs.getString(4));
+                astudentStacModel.setSprogram(rs.getString(1));
+                astudentStacModel.setSsenester(rs.getString(2));
+                astudentStacModel.setNoOfStu(rs.getString(3));
+                astudentStacModel.setNoOfGroup(rs.getString(4));
+                astudentStacModel.setNoOfSubGroup(rs.getString(5));
                 
                
                 list.add(astudentStacModel);
