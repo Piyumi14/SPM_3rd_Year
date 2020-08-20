@@ -131,13 +131,15 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         });
 
-        btnBuilding.setText("Add Building");
+        btnBuilding.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnBuilding.setText("Building");
         btnBuilding.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuildingActionPerformed(evt);
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Statistics");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
