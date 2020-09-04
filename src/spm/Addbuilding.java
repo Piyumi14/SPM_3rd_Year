@@ -439,15 +439,7 @@ public class Addbuilding extends javax.swing.JFrame {
     }//GEN-LAST:event_centerActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
-        //        private int bid;
-   // private String bName;
-    //private String center;
-    //private String location;
-    //private int noOfFloors;
-    //private String department;
-        // String query = "SELECT bid from building  bName='" + bName.getText()
-        
+       
         
          BuildingModel bModel = new BuildingModel();
         bModel.setBid(0);
