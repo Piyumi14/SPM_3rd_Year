@@ -20,11 +20,30 @@ import javax.swing.JOptionPane;
 public class DBOperation {
     String url = "jdbc:mysql://localhost:3306/spm";
     String username = "root";
-    String password = "root";
+    String password = "";
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     Statement st;
+    
+    
+    
+     public static Connection connect(){
+        
+        Connection con=null;
+        
+        try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/spm2", "root", "");
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return con;
+        
+    }
     
     //Add Subject Details
     boolean addSubject(Subject s) {
