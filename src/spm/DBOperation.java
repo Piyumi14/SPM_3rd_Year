@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author PIYUMI
@@ -475,7 +476,7 @@ public class DBOperation {
             ArrayList<AstudentStacModel> list = new ArrayList<AstudentStacModel>();
 
             con = (Connection) DriverManager.getConnection(url, username, password);
-            String query = "SELECT * FROM stustac";
+            String query = "SELECT program,academicYear,semester ,count(DISTINCT groupNo), COUNT(subGroupNo),COUNT(sid) as NoOFStudent FROM `subject`GROUP BY program,academicYear";
             pst = (PreparedStatement) con.prepareStatement(query);
 
             rs = pst.executeQuery();
@@ -483,8 +484,9 @@ public class DBOperation {
             while (rs.next()) {
                 AstudentStacModel astudentStacModel = new AstudentStacModel();
                 astudentStacModel.setSprogram(rs.getString(1));
-                astudentStacModel.setSsenester(rs.getString(2));
-                astudentStacModel.setNoOfStu(rs.getString(3));
+                 astudentStacModel.setAcadamicYear(rs.getString(2));
+                astudentStacModel.setSsenester(rs.getString(3));
+                astudentStacModel.setNoOfStu(rs.getString(6));
                 astudentStacModel.setNoOfGroup(rs.getString(4));
                 astudentStacModel.setNoOfSubGroup(rs.getString(5));
                 
