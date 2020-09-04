@@ -148,6 +148,7 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setText("Working Days & Hours");
         jButton3.addActionListener(new java.awt.event.ActionListener() {

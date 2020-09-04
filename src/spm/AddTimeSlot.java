@@ -118,6 +118,8 @@ public class AddTimeSlot extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setText("ADD TIME SLOTS");
 
@@ -428,6 +430,7 @@ public class AddTimeSlot extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ViewTimeSlot viewTimeSlot=new ViewTimeSlot();
         viewTimeSlot.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
