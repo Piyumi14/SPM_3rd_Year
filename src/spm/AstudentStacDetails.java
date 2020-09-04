@@ -19,6 +19,7 @@ public class AstudentStacDetails extends AbstractTableModel {
           
          
         "Program",
+        "Acadamic year",
         "Semester",
         "No Of Student",
         "noOfGroup",
@@ -45,12 +46,14 @@ public class AstudentStacDetails extends AbstractTableModel {
             case 0:
                 return list.get(rowIndex).getSprogram();
             case 1:
-                return list.get(rowIndex).getSsenester();
+                return list.get(rowIndex).getAcadamicYear();
             case 2:
-                return list.get(rowIndex).getNoOfStu();
+                return list.get(rowIndex).getSsenester();
             case 3:
-                return list.get(rowIndex).getNoOfGroup();
+                return list.get(rowIndex).getNoOfStu();
             case 4:
+                return list.get(rowIndex).getNoOfGroup();
+            case 5:
                 return list.get(rowIndex).getNoOfSubGroup(); 
             default:
                 return "Error";
