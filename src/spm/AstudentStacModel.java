@@ -12,6 +12,7 @@ package spm;
 public class AstudentStacModel {
     
       private String sprogram;
+      private String AcadamicYear;
     private String ssenester;
     private String noOfStu;
     private String noOfGroup;
@@ -85,6 +86,20 @@ public class AstudentStacModel {
      */
     public void setNoOfSubGroup(String noOfSubGroup) {
         this.noOfSubGroup = noOfSubGroup;
+    }
+
+    /**
+     * @return the AcadamicYear
+     */
+    public String getAcadamicYear() {
+        return AcadamicYear;
+    }
+
+    /**
+     * @param AcadamicYear the AcadamicYear to set
+     */
+    public void setAcadamicYear(String AcadamicYear) {
+        this.AcadamicYear = AcadamicYear;
     }
     
 }
